@@ -1,5 +1,6 @@
 package Duke;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ui {
@@ -35,11 +36,11 @@ public class Ui {
            throw new DukeException("OOPS!!! The index of task cannot be empty");
         return s;
     }
-    public void printList(Task [] tasks,int size){
+    public void printList(ArrayList<Task> tasks, int size){
         System.out.println("-----------");
         for (int i = 0;i<size;i++){
-            System.out.println((i+1)+"."+ "["+tasks[i].getStatusIcon()+"] "+
-                    tasks[i].description);
+            System.out.println((i+1)+"."+ "["+tasks.get(i).getStatusIcon()+"] "+
+                    tasks.get(i).description);
         }
         System.out.println("-----------");
     }
@@ -53,8 +54,8 @@ public class Ui {
     }
     public void printDeleteMsg(Task t){
         System.out.println("____________________________________________________________\n" +
-                "     Noted. I've removed this task: \n" + t.description +
-                "     \n" +
+                "     Noted. I've removed this task: \n" + "     ["+t.getStatusIcon()+"]" + t.description +
+                "      \n"+
                 "     Now you have 4 tasks in the list.\n" +
                 "    ____________________________________________________________");
     }
